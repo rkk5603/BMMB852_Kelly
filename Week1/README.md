@@ -1,6 +1,6 @@
-#week 1 assignment. 
+# week 1 assignment. 
 
-#5. What version is your samtools command in the bioinfo environment? Version 1.20
+# 5. What version is your samtools command in the bioinfo environment? Version 1.20
 input:
   micromamba activate bioinfo
   samtools
@@ -66,24 +66,24 @@ output:
   
   (bioinfo)
 
-#6. commands for nested directory structure
+# 6. commands for nested directory structure
 input:
   mkdir -p DIR1/DIR2/DIR3
   
-#7. commands for files in different directories
+# 7. commands for files in different directories
 input:
   touch DIR1/bees.txt
   touch DIR1/DIR2/knees.py
 
-#8. access file with relative and absolute paths
-  #absolute
+# 8. access file with relative and absolute paths
+  # absolute
   input:
     view /home/biouser/work/dir1/bees.txt
-  #relative
+  # relative
   input:
     view ../work/dir1/dir2/knees.py
 
-#9. commit and push changes to repository
+# 9. commit and push changes to repository
   input:
     git commit -am "added file for assignment 1"
     git push
