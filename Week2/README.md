@@ -1,11 +1,16 @@
 ### HW2. Exploring gff file use
 ### 1. About the organism
-Peromyscus maniculatis bairdii, the eastern deer mouse. <br>
+- Peromyscus maniculatis bairdii, prairie deer mouse. <br>
 Hella cute.
-![peromyscus_maniculatis](https://github.com/user-attachments/assets/344fb58d-56cf-453f-acc9-58ab7f943253)
-### grabbing gff file 
-`wget https://ftp.ensembl.org/pub/current_gff3/peromyscus_maniculatus_bairdii/Peromyscus_maniculatus_bairdii.HU_Pman_2.1.115.chr.gff3.gz | gunzip`
+
+![peromyscus_maniculatis_bairdii](https://github.com/user-attachments/assets/ee22feec-3827-475e-b87e-66cdc8eca401)
+- Mossman2023, INaturalist 2023
+
 ### 2. How many sequence regions (chromosomes) does the file contain? Expected 24 pairs (23 autosomal)
+- grab gff file
+### input:
+`wget https://ftp.ensembl.org/pub/current_gff3/peromyscus_maniculatus_bairdii/Peromyscus_maniculatus_bairdii.HU_Pman_2.1.115.chr.gff3.gz | gunzip`
+- filter for sequence region features
 ### input:
 `GFF=Peromyscus_maniculatus_bairdii.HU_Pman_2.1.115.chr.gff3.gz` <br>
 `cat $GFF| grep sequence-region | wc -l`
@@ -30,29 +35,24 @@ Hella cute.
   These features could include other features (exon, CDS, ncRNA, etc) within them
 ### 6. What are the top-ten most annotated feature types (column 3) across the genome?
 ### input:
-`cat data.gff | cut -f 3 | sort | uniq -c | sort -r | head -50`
+`cat data.gff | cut -f 3 | sort | uniq -c | sort -r | head -10`
 ### output:
-`276147 exon` <br>
-`270173 CDS`
-  64852 biological_region
-  27437 mRNA
-  21112 gene
-   2894 ncRNA_gene
-   1182 snRNA
-    677 pseudogenic_transcript
-    677 pseudogene
-    542 transcript
-    529 snoRNA
-    402 rRNA
-    172 miRNA
-     45 scRNA
-     27 V_gene_segment
-     24 region
-     22 lnc_RNA
-     13 five_prime_UTR
-     12 three_prime_UTR
-      3 J_gene_segment
-      2 C_gene_segment
-`
+
+
+     276147 exon
+     270173 CDS
+      64852 biological_region
+      27437 mRNA
+      21112 gene
+       2894 ncRNA_gene
+       1182 snRNA
+        677 pseudogenic_transcript
+        677 pseudogene
+        542 transcript
+     
 ### 7. Having analyzed this GFF file, does it seem like a complete and well-annotated organism?
+- This annotation appears to have the right amount of protein-coding genes (21112 out of ~22,000 expected)
+- There should be about 36,000 genes total, however, and including all gene features here only totals about 27,000. 
+
 ### 8. Share any other insights you might note.
+- This screening was likely not as concerend with non-coding elements.
