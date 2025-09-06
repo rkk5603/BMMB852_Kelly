@@ -1,1 +1,1 @@
-### HW 1. Using simple bash commands to navigate directories, and formatting in github.
+### Assignents for BMMB852 fall 2025 found here
