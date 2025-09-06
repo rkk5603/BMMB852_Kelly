@@ -1,4 +1,5 @@
-# Week 1 assignment 
+# Week 1 assignment. Using simple bash commands to navigate directories, and formatting in github.
+
 
 ### 5. What version is your samtools command in the bioinfo environment? Version 1.20
 ### input:
