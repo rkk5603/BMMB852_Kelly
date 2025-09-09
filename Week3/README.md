@@ -48,8 +48,30 @@ fasta_amel.fa  FASTA   DNA        177  225,250,884    2,302  1,272,603.9  27,754
 
 ```
 ### 2. From your GFF file, separate the intervals of type "gene" or "transcript" into a different file. Show the commands you used to do this.
+
+```
+# use awk function to search 3rd column for exact string "gene" and send the entire line to a new file
+awk '$3 == "gene"' amel.gff > amel_lite.gff
+
+# same function for transcripts (non-protein coding full RNA transcript features), append to file, not overwrite. Tedious.
+awk '$3 == "snoRNA"' amel.gff > amel_lite.gff
+awk '$3 == "guide_RNA"' amel.gff >> amel_lite.gff
+awk '$3 == "snRNA"' amel.gff >> amel_lite.gff
+awk '$3 == "rRNA"' amel.gff >> amel_lite.gff
+awk '$3 == "tRNA"' amel.gff >> amel_lite.gff
+awk '$3 == "miRNA"' amel.gff >> amel_lite.gff
+awk '$3 == "ncRNA_gene"' amel.gff >> amel_lite.gff
+awk '$3 == "lnc_RNA"' amel.gff >> amel_lite.gff
+
+```
+
 ### 3. Visualize the simplified GFF in IGV as a separate track. Compare the visualization of the original GFF with the simplified GFF.
+<img width="1918" height="489" alt="hw3_mutliplegff" src="https://github.com/user-attachments/assets/7a070976-5004-4cd1-8918-3cf76b04648d" />
+
+- The peaks present in the original GFF are still present in the simplified GFF. The peaks of the simplified GFF appear to be greater now though. I suspect the intensity is relative to all features in the file, so the removal of other entries makes the exisitng peaks greater.
+
 ### 4. Zoom in to see the sequences, expand the view to show the translation table in IGV. Note how the translation table needs to be displayed in the correct orientation for it to make sense.
+
 ### 5. Visually verify that the first coding sequence of a gene starts with a start codon and that the last coding sequence of a gene ends with a stop codon.
 
 ### Report your findings in text, and provide the code for the commands you ran in your markdown report.
