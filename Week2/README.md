@@ -52,7 +52,7 @@ Hella cute.
      
 ### 7. Having analyzed this GFF file, does it seem like a complete and well-annotated organism?
 - This annotation appears to have the right amount of protein-coding genes (21112 out of ~22,000 expected)
-- There should be about 36,000 genes total, however, and including all gene features here only totals about 27,000. 
+- There should be about 36,000 genes total, however, including all gene features here only totals about 27,000. 
 
 ### 8. Share any other insights you might note.
 - This screening was likely not as concerend with non-coding elements.
