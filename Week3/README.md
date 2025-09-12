@@ -71,9 +71,9 @@ awk '$3 == "lnc_RNA"' amel.gff >> amel_lite.gff
 - The peaks present in the original GFF are still present in the simplified GFF. The peaks of the simplified GFF appear to be greater now though. I suspect the intensity is relative to all features in the file, so the removal of other entries makes the exisitng peaks greater.
 
 ### 4. Zoom in to see the sequences, expand the view to show the translation table in IGV. Note how the translation table needs to be displayed in the correct orientation for it to make sense.
+<img width="1901" height="460" alt="IGV_aaSeq" src="https://github.com/user-attachments/assets/a5e3a996-8c98-4b21-a75d-97f4bf45783f" />
 
 ### 5. Visually verify that the first coding sequence of a gene starts with a start codon and that the last coding sequence of a gene ends with a stop codon.
-
-### Report your findings in text, and provide the code for the commands you ran in your markdown report.
-
-### Add a screenshot of your IGV session to your report.
+Gene LOC102655904. The first open reading frame has a sequence with start codon towards the start of the gene and a sequence downstream with a stop codon.
+<img width="1901" height="460" alt="orf_ATG" src="https://github.com/user-attachments/assets/26b537ce-1668-4ce0-916f-84a4d8bde10f" />
+<img width="1892" height="464" alt="orf_stop" src="https://github.com/user-attachments/assets/c1ef48d6-36a7-477f-b9a3-738902348f3b" />
