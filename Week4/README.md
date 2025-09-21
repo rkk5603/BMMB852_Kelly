@@ -1,5 +1,9 @@
 ### 1. Identify the accession numbers for the genome and write the commands to download the data. Make your commands reusable and reproducible.
-
+input:
+```
+efetch -db nuccore -format fasta -id AF086833 > ebola.fa
+```
+other accession numbers: KR105345, KM233043
 ### 2. Now use IGV to visualize the genome and the annotations relative to the genome. As a bioinformatician you should develop an ability to evaluate what you see.
 
 ### 3. How big is the genome, and how many features of each type does the GFF file contain? What is the longest gene? What is its name and function? You may need to search other resources to answer this question. Look at other gene names. Pick another gene and describe its name and function.
