@@ -4,7 +4,7 @@ input:
 efetch -db nuccore -format fasta -id AF086833 > ebola.fa
 ```
 Accession numbers: AF086833 reference fasta, GCF_000848505.1 genbank gff assembly
-### 2. Now use IGV to visualize the genome and the annotations relative to the genome. How big is the genomehow many features of each type does the GFF file contain? What is the longest gene? What is its name and function? Look at other gene names. Pick another gene and describe its name and function.
+### 2. Now use IGV to visualize the genome and the annotations relative to the genome. How big is the genome? How many features of each type does the GFF file contain? What is the longest gene? What is its name and function? Look at other gene names. Pick another gene and describe its name and function.
 ### genome size
 input:
 ```
@@ -70,4 +70,4 @@ L ~6.5kb
 ```
 Coding sequences account for about 18kb of 19kb, about 95% of the genome.
 ### 4. Find alternative genome builds that could be used to perhaps answer a different question (find their accession numbers). Considering the focus of the paper, think about what other questions you could answer if you used a different genome build.
-Other accession numbers: KJ660346.2, KR105345, KM233043. There are many assemblies within KJ*******, KR*******, and KM*******. This 2014 study compared viral genomes from individuals from 2004 to 2014 in Sierra Leone. There is an even older assembly from a sample from the 1976 outbreak in the Democatic republic of the Congo (GCF_000848505.1).  which could be used Comparison with this assembly could provide geographic and temporal information about the progression of ebola variants. 
+Other accession numbers: KJ660346.2, KR105345, KM233043. There are many assemblies within KJ*******, KR*******, and KM*******. This 2014 study compared viral genomes from individuals from 2004 to 2014 in Sierra Leone. There is an even older assembly from a sample from the 1976 outbreak in the Democatic republic of the Congo (GCF_000848505.1). Comparison with this assembly could provide geographic and temporal information about the progression of ebola variants. 
