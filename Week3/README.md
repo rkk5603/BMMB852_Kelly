@@ -75,5 +75,6 @@ awk '$3 == "lnc_RNA"' amel.gff >> amel_lite.gff
 
 ### 5. Visually verify that the first coding sequence of a gene starts with a start codon and that the last coding sequence of a gene ends with a stop codon.
 Gene LOC102655904. The first open reading frame has a sequence with start codon towards the start of the gene and a sequence downstream with a stop codon.
-<img width="1901" height="460" alt="orf_ATG" src="https://github.com/user-attachments/assets/26b537ce-1668-4ce0-916f-84a4d8bde10f" />
-<img width="1892" height="464" alt="orf_stop" src="https://github.com/user-attachments/assets/c1ef48d6-36a7-477f-b9a3-738902348f3b" />
+<img width="1513" height="386" alt="image" src="https://github.com/user-attachments/assets/e2a10c05-744e-4a2e-8b58-607f76df8d1d" />
+<img width="1180" height="441" alt="image" src="https://github.com/user-attachments/assets/7bbccf64-ae29-4f56-8ec3-375e818d8055" />
+
