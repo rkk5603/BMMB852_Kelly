@@ -54,7 +54,6 @@ grep -P "\tgene\t" $gff | awk '{print $5 - $4, $0}' | sort -rnk1 | head -1 | cut
 - G: genome length
 - number of reads for 10x coverage=(10*19000)/200
 - =950 reads
-- 
 ```
 #!/bin/bash
 
@@ -96,13 +95,29 @@ fastq-dump -X $num_reads -F --outdir reads --split-files $SRR
 
 #basic stats for downloaded reads
 seqkit stats reads/$SRR*_1.fastq
+seqkit stats reads/$SRR*_2.fastq
 
 ```
-
-### Quality assessment: Generate basic statistics on the downloaded reads (e.g., number of reads, total bases, average read length).
-
 ### Run FASTQC on the downloaded data to generate a quality report.
+```
+#!/bin/bash
+
+set -xue pipefail
+
+echo "Enter SRR number:"
+read SRR
+
+#run fastqc on recently dowloaded reads
+fastqc reads/$SRR*_1.fastq
+fastqc reads/$SRR*_2.fastq
+```
 ### Evaluate the FASTQC report and summarize your findings.
-### (optional) Perform any necessary quality control steps (e.g., trimming, filtering) and briefly describe your process (optional)
-### Search the SRA for another dataset for the same genome, but generated using a different sequencing platform (e.g., if original data was Illumina select PacBio or Oxford Nanopore).
-### Briefly compare the quality or characteristics of the datasets from the two platforms.
+<img width="1213" height="788" alt="fastqc_forward_ebola1" src="https://github.com/user-attachments/assets/fd664233-1d80-440a-99a4-f565d5e36000" />
+The read quality is not great. The GC content is a bit high, and the median quality is pretty poor meaning uncertain base calls. Also, there appear to be some adapter sequences.
+
+### (optional) Perform quality control steps (e.g., trimming, filtering)
+
+### Comparing quality of another dataset for the same genome
+- SRR1640364: PacBio long reads instead of NextGen short reads
+<img width="1212" height="759" alt="image" src="https://github.com/user-attachments/assets/c3f27871-44ae-41bf-9a0f-62188b9a3c79" />
+Woah! Base quality is a bit better than the short reads quality. The GC content and overrepresented sequences still failed, but the adapters have already been removed. Or maybe adapter ligating is different for long reads... I'm not sure how long read library preps work :(
