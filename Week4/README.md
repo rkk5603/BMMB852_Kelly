@@ -25,7 +25,7 @@ output:
 ### feature types in gff
 input:
 ```
-cat ebola1.gff | grep -v '#' | cut -f 3 | sort | uniq -c
+cat ebola.gff | grep -v '#' | cut -f 3 | sort | uniq -c
 ```
 output:
 ```
