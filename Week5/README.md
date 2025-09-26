@@ -4,9 +4,20 @@
 - ACC: KM233118
 
 ```
-#shebang to execute bash sctip
 #!/bin/bash
 
+#make script behave
+set -xue pipefail
+
+ACC=GCF_000848505.1
+
+#---------No changes below line-----------------
+
+#download genome zip, grab gff
+datasets download genome accession $ACC --include gff3,gtf
+unzip -n ncbi_datasets.zip
+
+```
 
 ### Create a bash shell script with the code from last week.
 ### Add commands to download at least one sequencing dataset using the SRR number(s).
