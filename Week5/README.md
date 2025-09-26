@@ -3,6 +3,8 @@
 - ACC: AF086833
 - ACC: KM233118
 
+### Download a data set
+
 ```
 #!/bin/bash
 
@@ -14,13 +16,10 @@ ACC=GCF_000848505.1
 #---------No changes below line-----------------
 
 #download genome zip, grab gff
-datasets download genome accession $ACC --include gff3,gtf
+datasets download genome accession $ACC --include gff3,gtf,genomic
 unzip -n ncbi_datasets.zip
 
 ```
-
-### Create a bash shell script with the code from last week.
-### Add commands to download at least one sequencing dataset using the SRR number(s).
 ### Download only a subset of the data that would provide approximately 10x genome coverage. Briefly explain how you estimated the amount of data needed for 10x coverage.
 ### Quality assessment: Generate basic statistics on the downloaded reads (e.g., number of reads, total bases, average read length).
 ### Run FASTQC on the downloaded data to generate a quality report.
