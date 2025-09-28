@@ -42,7 +42,7 @@ cat $gff | grep -v '#' | cut -f 3 | sort | uniq -c
 sleep 2
 
 #for longest gene
-echo "it aint much, but it's the longest gene:"
+echo "The longest gene:"
 grep -P "\tgene\t" $gff | awk '{print $5 - $4, $0}' | sort -rnk1 | head -1 | cut -f 9
 
 ```
@@ -59,38 +59,19 @@ grep -P "\tgene\t" $gff | awk '{print $5 - $4, $0}' | sort -rnk1 | head -1 | cut
 
 #set -xue pipefail
 
-#SRR=SRR1972976
+SRR=SRR1972976
+num_reads=950
 
 #---------no changes below line--------------
-
-echo "Enter SRR number: (try SRR1972976)"
-read SRR
 
 #stats for SRR number of reads
 bio search $SRR
 
-#identify read length
+#identify read length (~202)
 echo "Read length found here:"
 esearch -db sra -query $SRR | efetch -format runinfo | cut -d ',' -f 1,7
 
-echo "What is the average read length?"
-read read_length
-
-echo "What coverage would you like (10, 100, 100)?"
-read coverage
-
-echo "how big that genome (kb)"
-read gen_size
-
-if [[ "$gen_size" -lt "1000000" ]]; then
-        echo "Wow that's pretty small"
-fi
-
-sleep 1
-num_reads=$((coverage*gen_size/read_length))
-echo "Number of reads for requested coverage is" $num_reads
-
-#fetch only enough reads for 10x coverage
+#fetch only enough reads for 10x coverage (~950)
 fastq-dump -X $num_reads -F --outdir reads --split-files $SRR
 
 #basic stats for downloaded reads
