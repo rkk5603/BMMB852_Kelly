@@ -57,7 +57,7 @@ grep -P "\tgene\t" $gff | awk '{print $5 - $4, $0}' | sort -rnk1 | head -1 | cut
 ```
 #!/bin/bash
 
-#set -xue pipefail
+set -xue pipefaile
 
 SRR=SRR1972976
 num_reads=950
@@ -107,16 +107,13 @@ Woah! Base quality is a bit better than the short reads quality. The GC content 
 ```
 #!/bin/bash
 
-#set -xue pipefail
-
-#SRR=SRR1972976
-
 #reads directory
 READS=reads
 
 #reports directory
 REPORTS=reports
 
+#common adapter sequences
 ADAPTER=AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
 
 mkdir -p $REPORTS $READS
