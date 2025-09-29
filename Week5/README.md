@@ -10,7 +10,7 @@
 #!/bin/bash
 
 #make script behave
-set -xue pipefail
+set -xue -o pipefail
 
 ACC=GCF_000848505.1
 
@@ -83,7 +83,7 @@ seqkit stats reads/$SRR*_2.fastq
 ```
 #!/bin/bash
 
-set -xue pipefail
+set -xue -o pipefail
 
 echo "Enter SRR number:"
 read SRR
