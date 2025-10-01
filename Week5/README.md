@@ -33,4 +33,4 @@ The read quality is not great. The GC content is a bit high, and the median qual
 Woah! Base quality is a bit better than the short reads quality. The GC content and overrepresented sequences still failed, but the adapters have already been removed. Or maybe adapter ligating is different for long reads... I'm not sure how long read library preps work :(
 
 ### (optional) Perform quality control steps (e.g., trimming, filtering)
-- This script does it all (steps 3-5, plus qc). 
+The fasta_read_quality.sh script does it all (steps 3-5, plus qc). This script takes user input and will work for any valid SRR number.
