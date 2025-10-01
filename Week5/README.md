@@ -21,19 +21,8 @@ The fetch_reads_quality.sh script fetches only enough reads from the SRR1972976 
 - =950 reads
 
 ### 4. Run FASTQC on the downloaded data to generate a quality report.
+The fastqc.sh script generates quality reports for the retrieved reads for SRR1972976.
 
-```
-#!/bin/bash
-
-set -xue -o pipefail
-
-echo "Enter SRR number:"
-read SRR
-
-#run fastqc on recently dowloaded reads
-fastqc reads/$SRR*_1.fastq
-fastqc reads/$SRR*_2.fastq
-```
 ### 5. Evaluate the FASTQC report and summarize your findings.
 <img width="1213" height="788" alt="fastqc_forward_ebola1" src="https://github.com/user-attachments/assets/fd664233-1d80-440a-99a4-f565d5e36000" />
 The read quality is not great. The GC content is a bit high, and the median quality is pretty poor meaning uncertain base calls. Also, the reads still have adapter sequences.
