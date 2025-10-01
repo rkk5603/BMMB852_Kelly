@@ -5,81 +5,23 @@
 - SRR for a data set: SRR1972976
 
 ### 1. Bash script for downloading a data set
+The fetch.sh script retrieves the RNA seq data set from the 2014 Ebola virus paper.
 
-```
-#!/bin/bash
-
-#make script behave
-set -xue -o pipefail
-
-ACC=GCF_000848505.1
-
-#---------No changes below line-----------------
-
-#download genome zip, grab gff
-datasets download genome accession $ACC --include gff3,gtf,genome
-unzip -n ncbi_datasets.zip
-
-```
 ### 2. Script for genome length and features
-
-```
-#!/bin/bash
-
-set -xeu pipefail
-gff=~/work/BMMB852_Kelly/Week5/ncbi_dataset/data/GCF_000848505.1/genomic.gff
-fa=~/work/BMMB852_Kelly/Week5/ncbi_dataset/data/GCF_000848505.1/GCF_000848505.1_ViralProj14703_genomic.fna
-#----------------no changes below line---------------
-
-#for genome length
-echo "genome length is here somewhere:"
-seqkit stats $fa
-sleep 2
-
-#for gff feature information
-echo "gff features, cute and organized:"
-cat $gff | grep -v '#' | cut -f 3 | sort | uniq -c
-sleep 2
-
-#for longest gene
-echo "The longest gene:"
-grep -P "\tgene\t" $gff | awk '{print $5 - $4, $0}' | sort -rnk1 | head -1 | cut -f 9
-
-```
+The genome_features.sh script displays the length of the genome (Ebola virus), the different features and their counts from the GFF file, and the longest gene in the genome.
 
 ### 3. Download only a subset of the data for 10x genome coverage and provide number of reads, total bases, and average read length
+The fetch_reads_quality.sh script fetches only enough reads from the SRR1972976 fastq file for 10x coverage.
+
 - C=(LN)/G or N=(CG)/L
 - L: read length
 - N: number of reads
 - G: genome length
 - number of reads for 10x coverage=(10*19000)/200
 - =950 reads
-```
-#!/bin/bash
 
-set -xue pipefaile
-
-SRR=SRR1972976
-num_reads=950
-
-#---------no changes below line--------------
-
-#stats for SRR number of reads
-bio search $SRR
-
-#identify read length (~202)
-echo "Read length found here:"
-esearch -db sra -query $SRR | efetch -format runinfo | cut -d ',' -f 1,7
-
-#fetch only enough reads for 10x coverage (~950)
-fastq-dump -X $num_reads -F --outdir reads --split-files $SRR
-
-#basic stats for downloaded reads
-seqkit stats reads/$SRR*_1.fastq
-seqkit stats reads/$SRR*_2.fastq
-
-```
 ### 4. Run FASTQC on the downloaded data to generate a quality report.
+
 ```
 #!/bin/bash
 
