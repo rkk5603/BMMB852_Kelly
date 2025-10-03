@@ -33,7 +33,7 @@ ACC=GCF_000848505.1
 
 #---------------------the stuff---------------------------------------
 
-# Obtain the reference genome
+# Obtains the reference genome
 fetch:
         #makes ref directory
         mkdir -p $(dir ${REF})
@@ -44,24 +44,24 @@ fetch:
         #displays genome stats
         seqkit stats ${REF}
 
-#Download subset of data for 10x coverage (950 reads)
+#Downloads subset of data for 10x coverage (950 reads)
 #Remove -X for all data
 fastq:
         # Create the reads directory
         mkdir -p $(dir ${R1})
 
-        # Download the reads
+        # Downloads reads
         fastq-dump -X ${N} --outdir reads --split-files ${SRR}
 
-        # Show some information about the reads
+        # Summary stats for reads
         seqkit stats ${R1} ${R2}
 
 # Index the reference genome
 index:
         bwa index ${REF}
 
-# Align the reads and convert to BAM. Use 4 threads
-# Works for paired-end reads. Modify for single-end reads.
+# Align the reads and convert to BAM (only for paired-end reads)
+# specifies use of 4 threads
 align:
         # Make the BAM directory
         mkdir -p $(dir ${BAM})
@@ -69,18 +69,18 @@ align:
         # Align the reads
         bwa mem -t 4 ${REF} ${R1} ${R2} | samtools sort  > ${BAM}
 
-        # Index the BAM file
+        # Indexes the BAM file
         samtools index ${BAM}
-# Generate alignment statistics
+# Generates alignment statistics
 stats:
         samtools flagstat ${BAM}
 
-# Clean up generated files
+# Removes unecessary files
 clean:
         rm -rf ${REF} ${R1} ${R2} ${BAM} ${BAM}.bai
 
-# Create necessary directories
+# Runs all targets
 all: fetch fastq index align stats
 
-# Create necessary directories
+# always runs .phony files
 .PHONY: all fetch fastq index align clean stats
