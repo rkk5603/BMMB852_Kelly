@@ -5,7 +5,7 @@
 - SRR for a data set: SRR1972976
 
 ### 1. Bash script for downloading a data set
-The fetch.sh script retrieves the RNA seq data set from the 2014 Ebola virus paper.
+The fetch.sh script retrieves genome and gff data set from the 2014 Ebola virus paper.
 
 ### 2. Script for genome length and features
 The genome_features.sh script displays the length of the genome (Ebola virus), the different features and their counts from the GFF file, and the longest gene in the genome.
