@@ -26,7 +26,7 @@ R2=reads/${SRR}_2.fastq
 BAM=bam/${SRR}.bam
 
 # How many reads to download
-N=950
+N=10000
 
 # NCBI Genome accession number
 ACC=GCF_000848505.1
@@ -44,7 +44,7 @@ fetch:
         #displays genome stats
         seqkit stats ${REF}
 
-#Downloads subset of data for 10x coverage (950 reads)
+#Downloads subset of data for 100x coverage (10000 reads)
 #Remove -X for all data
 fastq:
         # Create the reads directory
