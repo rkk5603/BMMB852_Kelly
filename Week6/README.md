@@ -1,12 +1,19 @@
-#!/bin/bash
+1. Transform the script into a Makefile that includes rules for:
+Obtaining the genome
+Downloading sequencing reads from SRA
 
-#make script behave
-set -xue -o pipefail
+2. Your README.md should explain the use of the Makefile in your project.
 
-ACC=GCF_000848505.1
+3. Add the following targets to the Makefile:
 
-#---------No changes below line-----------------
+index: Index the genome
+align: Generate a sorted and indexed BAM file by aligning reads to the genome
 
-#download genome zip, grab gff
-datasets download genome accession $ACC --include gff3,gtf,genome
-unzip -n ncbi_datasets.zip
+4. Visualize the resulting BAM files for both simulated reads and reads downloaded from SRA.
+
+5. Generate alignment statistics for the BAM file.
+
+What percentage of reads aligned to the genome?
+What was the expected average coverage?
+What is the observed average coverage?
+How much does the coverage vary across the genome? (Provide a visual estimate.)
