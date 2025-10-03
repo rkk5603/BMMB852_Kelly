@@ -1,4 +1,3 @@
-```
 #useful default settings
 SHELL = bash
 .ONESHELL:
@@ -85,4 +84,3 @@ all: fetch fastq index align stats
 
 # Create necessary directories
 .PHONY: all fetch fastq index align clean stats
-```
