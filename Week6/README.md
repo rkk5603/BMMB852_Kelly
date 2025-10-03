@@ -12,6 +12,6 @@
 ### Alignment statistics for the BAM file.
 - What percentage of reads aligned to the genome?
 - What was the expected average coverage?
-  - 10x
+  - 100x
 - What is the observed average coverage?
 - How much does the coverage vary across the genome? (Provide a visual estimate.)
