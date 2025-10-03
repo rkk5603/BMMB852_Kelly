@@ -3,7 +3,10 @@
 - fastq: Downloads sequencing reads from SRA
 - index: Indexes the ref genome for ease of visualization
 - align: Generates a BAM file by aligning reads to the genome
-
+- stats: Displays summary stats on the generated BAM file
+- clean: Removes unecessary files
+- all: runs all targets
+- .phony: 
 ### Visualize the resulting BAM files for both simulated reads and reads downloaded from SRA.
 
 ### Alignment statistics for the BAM file.
