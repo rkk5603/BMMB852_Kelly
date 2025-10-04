@@ -10,8 +10,10 @@
 ### Visualize the resulting BAM files for both simulated reads and reads downloaded from SRA.
 
 ### Alignment statistics for the BAM file.
-- What percentage of reads aligned to the genome?
-- What was the expected average coverage?
-  - 100x
-- What is the observed average coverage?
+- Percentage of reads aligned to the genome: 0.01% :(
+- Expected average coverage: 100x
+- Observed average coverage: 4.69% :(
+- ```
+  samtools coverage bam/SRR1972976.bam | cut -f 6
+  ```
 - How much does the coverage vary across the genome? (Provide a visual estimate.)
