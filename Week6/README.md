@@ -6,7 +6,7 @@
 - stats: Displays summary stats on the generated BAM file
 - clean: Removes unecessary files
 - all: runs all targets
-- .phony: runs sll targets, not files generated
+- .phony: runs all targets, no files generated
 ### Visualize the resulting BAM files for both simulated reads and reads downloaded from SRA.
 
 ### Alignment statistics for the BAM file.
