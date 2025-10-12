@@ -1,17 +1,17 @@
-### 1.Add additional code to your Makefile to also create bigWig coverage tracks. See the WIGGLE: Genome coverage page for code.
-
-### 2. In your README.md, demonstrate the use of your Makefile to generate a BAM file for both the original data and the second sequencing data obtained with a different instrument.
+### Target bigwig converts a bam file to a bw file.
+```
+make -f fetch_index_align.mk bigwig
+``` 
+### generates bam file for an RNA seq short read, paired-end data set for ebola virus
 input:
 ```
 make -f fetch_index_align.mk all
 ```
-output: generates a bam file for for SRR1972976, and RNA seq data set for ebola virus
-
+### generates bam file for a pac bio long read data set for ebola virus. R2 must be set to an empty string if the specidied SRR is not a paired read run.
 input:
 ```
-make -f fetch_index_align.mk all SRR=SRR1640364
+make -f fetch_index_align.mk all SRR=SRR1640364 R2=
 ```
-output: bam file for a pac bio long read data set for ebola virus
 ### 3. Visualize the GFF annotations and both wiggle and BAM files in IGV.
 
 ### questions:
