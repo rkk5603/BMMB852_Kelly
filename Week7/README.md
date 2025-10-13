@@ -1,16 +1,16 @@
 ### Target bigwig converts a bam file to a bw file.
 ```
-make -f fetch_index_align.mk bigwig
+make -f align.mk bigwig
 ``` 
 ### The makefile generates bam file for an RNA seq short read, paired-end data set for ebola virus
 input:
 ```
-make -f fetch_index_align.mk all
+make -f align.mk all
 ```
 ### The makefile can generate a bam file for a specified SRR (pac bio long read data set for ebola virus). R2 must be set to an empty string if the specidied SRR is not a paired read run.
 input:
 ```
-make -f fetch_index_align.mk all SRR=SRR1640364 R2=
+make -f align.mk all SRR=SRR1640364 R2=
 ```
 ### Visualize the GFF annotations and both wiggle and BAM files in IGV.
 <img width="1900" height="994" alt="bam_bw" src="https://github.com/user-attachments/assets/eded7ea1-241e-47c8-b2b9-c1a8343f18da" />
