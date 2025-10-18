@@ -1,4 +1,4 @@
-You may reuse the Makefile created in previous assignments. Take the paper you were assigned to reproduce and create a design.csv file that connects the SRR numbers to the sample names.
+****You may reuse the Makefile created in previous assignments. Take the paper you were assigned to reproduce and create a design.csv file that connects the SRR numbers to the sample names.
 
 Identify the sample names that connect the SRR numbers to the samples.
 Create a design.csv file that connects the SRR numbers to the sample names.
