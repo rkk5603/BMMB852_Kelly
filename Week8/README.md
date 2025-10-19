@@ -1,3 +1,4 @@
+# Using GNU parallel to call a makefile with multiple items in a design.csv
 ### Make a design.csv file with all SRR runs associated with a bioproject
 I used esearch and runinfo to grab all SRR numbers associated with the PRJNA257197 project from the 2014 ebola virus outbreak paper. This command stores the SRR, the project number, and the sample name for each.
 ```
