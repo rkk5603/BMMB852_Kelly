@@ -14,24 +14,28 @@ The reference genome (default = AF086833, Ebola virus):
 ```
 ACC=[genome_accession#]
 ````
+
 A user-friendly genome name (default = ebola):
 ```
 NAME=[user_friendly_name]
 ```
+
 The SRR (default = SRR1972976):
 ```
 SRR=[SRR#]
 ```
+
 The Makefile can be called with GNU parallel to iterate through a design.csv file for multiple SRRs corresponding to sequencing runs.
 ```
 cat design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} test
+```
 
 ### Using GNU parallel run the Makefile on all (or at least 10) samples.
 The command will run all targets for the first 10 samples of the design.csv file.
-
 ```
 head -11 design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} all
 ```
+
 The output for each sample is a FASTQ file, a FASTQC report, a BAM and BW file, and some summary statistics for the alignment.
 
 
