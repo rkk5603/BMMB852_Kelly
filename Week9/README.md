@@ -2,7 +2,9 @@
 ### Make a design.csv file with all SRR runs associated with a bioproject
 I used esearch and runinfo to grab all SRR numbers associated with the PRJNA257197 project from the 2014 ebola virus outbreak paper. This command stores the SRR, the project number, and the sample name for each.
 ```
-esearch -db sra -query PRJNA257197 | efetch -format runinfo | cut -d ',' -f 1,22,25
+esearch -db sra -query PRJNA257197 | efetch -format runinfo | cut -d ',' -f 1,22,25 > design.csv
+
+head -11 design.csv > design.csv
 ```
 
 ### Create a Makefile that can produce multiple BAM alignment files from an SRR named after the sample name
@@ -44,13 +46,7 @@ make -f align.mk all SRR=SRR1972976 ACC=AF086833 NAME=ebola SAMPLE=sample1
 ### GNU parallel
 The Makefile can also be called with GNU parallel to iterate through a design.csv file for multiple SRRs corresponding to sequencing runs.
 ```
-cat design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} test
-```
-
-### Using GNU parallel to run the Makefile on the design.csv file
-This command will run all targets for the first 10 samples of the design.csv file.
-```
-head -11 design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} all
+cat design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} all
 ```
 
 The output for each sample is a FASTQ file, a FASTQC report, a BAM and BW file, and some summary statistics for the alignment.
