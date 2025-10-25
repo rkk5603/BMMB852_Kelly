@@ -39,8 +39,7 @@ BAM=bam/${SAMPLE}.bam
 N=100000
 
 # NCBI Genome accession number
-#ACC=GCF_000848505.1
-ACC=AF086833
+ACC=NC_002549.1
 
 # for bigwig file
 # The temporary bedgraph file
