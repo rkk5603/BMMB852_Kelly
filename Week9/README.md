@@ -18,9 +18,9 @@ Included targets:
 - index: Indexes the ref genome for ease of visualization
 - align: Generates a BAM file by aligning reads to the genome
 - stats: Displays summary stats on the generated BAM file
-- bigwig: Converts the BAM file to a more visually digestible BW file.
+- bigwig: Converts the BAM file to a more visually digestible BW file
 - clean: Removes unecessary files
-- all: runs all targets
+- all: runs all targets but fetch (assumes reference genome has been downloaded)
 - .phony: runs all targets, no files generated
 
 Command line parameters
@@ -28,6 +28,7 @@ Command line parameters
 - NAME: user-friendly genome name (default = ebola)
 - SRR: SRR run (default = SRR1972976)
 - SAMPLE: sample name from SRR run to name BAM file
+- N: number of reads to fastq-dump from SRR run
    
 The Makefile can be called for a single sample.
 ```
