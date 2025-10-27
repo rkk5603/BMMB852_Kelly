@@ -3,7 +3,8 @@
 I used esearch and runinfo to grab all SRR numbers associated with the PRJNA257197 project from the 2014 ebola virus outbreak paper. This command stores the SRR, the project number, and the sample name for each.
 ```
 esearch -db sra -query PRJNA257197 | efetch -format runinfo | cut -d ',' -f 1,22,25 > design.csv
-
+```
+```
 head -11 design.csv > design.csv
 ```
 
@@ -22,22 +23,12 @@ Included targets:
 - all: runs all targets
 - .phony: runs all targets, no files generated
 
-### From the command line, parameters can be specified.
-
-The reference genome (default = AF086833, Ebola virus):
-```
-ACC=[genome_accession#]
-````
-
-A user-friendly genome name (default = ebola):
-```
-NAME=[user_friendly_name]
-```
-
-The SRR (default = SRR1972976):
-```
-SRR=[SRR#]
-```
+Command line parameters
+- ACC: The reference genome (default = AF086833, Ebola virus)
+- NAME: user-friendly genome name (default = ebola)
+- SRR: SRR run (default = SRR1972976)
+- SAMPLE: sample name from SRR run to name BAM file
+   
 The Makefile can be called for a single sample.
 ```
 make -f align.mk all SRR=SRR1972976 ACC=AF086833 NAME=ebola SAMPLE=sample1
