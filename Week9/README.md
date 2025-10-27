@@ -8,8 +8,7 @@ esearch -db sra -query PRJNA257197 | efetch -format runinfo | cut -d ',' -f 1,22
 head -11 design.csv > design.csv
 ```
 
-### Create a Makefile that can produce multiple BAM alignment files from an SRR named after the sample name
-The align.mk Makefile will take an SRR and sample name, align the run to the reference genome, and generate a BAM file.
+### The Makefile will take an SRR and sample name, align the run to a reference genome, and generate a BAM file.
 
 Included targets:
 - fetch: Obtains the genome and displays some summary stats
@@ -29,16 +28,21 @@ Command line parameters
 - SRR: SRR run (default = SRR1972976)
 - SAMPLE: sample name from SRR run to name BAM file
 - N: number of reads to fastq-dump from SRR run
-   
-The Makefile can be called for a single sample.
+
+### Usage
+Fetch the genome
 ```
-make -f align.mk all SRR=SRR1972976 ACC=AF086833 NAME=ebola SAMPLE=sample1
+make fetch ACC=AF086833 NAME=ebola
 ```
 
-### GNU parallel
+The Makefile can then be called for a single sample
+```
+make all SRR=SRR1972976 SAMPLE=sample1
+```
+
 The Makefile can also be called with GNU parallel to iterate through a design.csv file for multiple SRRs corresponding to sequencing runs.
 ```
-cat design.csv | parallel --colsep , --header : --lb -j 4 make -f align.mk SRR={Run} SAMPLE={Sample} all
+cat design.csv | parallel --colsep , --header : --lb -j 4 make SRR={Run} SAMPLE={Sample} all
 ```
 
 The output for each sample is a FASTQ file, a FASTQC report, a BAM and BW file, and some summary statistics for the alignment.
