@@ -17,7 +17,7 @@ make vcf SRR=SRR1972976 SAMPLE=ebola
 ### Run the variant calling workflow for all samples using your design.csv file.
 The Makefile can be called for multiple samples in a design.csv file
 ```
-
+cat design.csv | parallel --colsep , --header : --lb -j 4 make SRR={Run} SAMPLE={Sample} vcf
 ```
 ### Create a multisample VCF
 ### Merge all individual sample VCF files into a single multisample VCF file (hint: bcftools merge)
