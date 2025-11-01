@@ -7,3 +7,4 @@
 -   This file retrieves a reference genome, a GFF data set, performs an alignment, and generates an alignment file.
 - Week 7 explores bigwig files and visualization of alignments.
 - Week 8 introduces GNU parallel as a function to iterate through many items in tandem with a the commands of Makefile.
+- Week 10 adds variant calling target to the Makefile.
