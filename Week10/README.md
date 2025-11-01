@@ -1,5 +1,5 @@
-# Call variants on a single sample
-### The VCF target generates calls variants from a user-provided SRR  
+# Call variants from BAM files
+### The bcf target calls variants from a user-provided SRR  
 
 The bcf target uses bcftools to call variants in four steps
 1. mpileup uses the BAM file from the upstream Makefile output and the reference genome to calculate genotype liklihood at each base
@@ -17,6 +17,13 @@ The Makefile can be called for multiple samples in a design.csv file
 ```
 cat design.csv | parallel --colsep , --header : --lb -j 2 make SRR={Run} SAMPLE={Sample} bcf
 ```
-### Merge all individual sample VCF files into a single multisample VCF file (hint: bcftools merge)
-### Visualize the multisample VCF in the context of the GFF annotation file.
-### If any samples show poor alignment or no variants, identify and replace them with better samples. Ensure you have sufficient genome coverage across all samples
+The merge target combines all .vcf.gz files into one .vcf.gz file.
+```
+make merge
+```
+<img width="1913" height="623" alt="multivcf" src="https://github.com/user-attachments/assets/0bd90f8a-de5c-4da3-b1b9-bd13a7ba7e98" />
+
+Several samples exhibit poor variant calling.
+- SRS908478* SRS908484* SRS803915*
+
+  
