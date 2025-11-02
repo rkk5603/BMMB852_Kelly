@@ -25,5 +25,7 @@ make merge
 
 Several samples exhibit poor variant calling.
 - SRS908478* SRS908484* SRS803915*
+  
+Theses samples were replaced with better runs.
 <img width="1920" height="560" alt="multivcf" src="https://github.com/user-attachments/assets/55ec6d37-11b9-494f-8dd1-a87e2057eeb0" />
 
