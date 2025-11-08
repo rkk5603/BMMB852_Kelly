@@ -14,7 +14,6 @@ Or with a previously merged VCF file with multiple samples.
 make effect SAMPLE=merged
 ```
 
-This command runs with an error: ERROR_CHROMOSOME_NOT_FOUND 495
-If, for some reason, you can't make any of the variant effect prediction software work, you may use visual inspection via IGV to describe the effect of variants relative to a reference genome and an annotation file.
+Originally, I performed all alignments and variant calling with accession number NC_002549.1. The only prebuilt ebola database uses accession number KJ660346.1. Consequently, this command runs with an error: ERROR_CHROMOSOME_NOT_FOUND 495, since the chromosome names do not match. Boy howdy was this a nightmare. Because I couldn't be bothered to try a different variant predictor like VEP, I tried three different ways to attempt to swap out the chromosome name in my VCF file. This didn't work. Ultimately, I have procured a successful snpEff_summary file after rerunning my alignment with the KJ660346.1 accession.
 
 ### Identify variants with different effects.
