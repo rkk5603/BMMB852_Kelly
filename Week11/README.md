@@ -14,6 +14,7 @@ Or with a previously merged VCF file with multiple samples.
 make effect SAMPLE=merged
 ```
 
-Originally, I performed all alignments and variant calling with accession number NC_002549.1. The only prebuilt ebola database uses accession number KJ660346.1. Consequently, this command runs with an error: ERROR_CHROMOSOME_NOT_FOUND 495, since the chromosome names do not match. Boy howdy was this a nightmare. Because I couldn't be bothered to try a different variant predictor like VEP, I tried three different ways to attempt to swap out the chromosome name in my VCF file. This didn't work. Ultimately, I have procured a successful snpEff_summary file after rerunning my alignment with the KJ660346.1 accession.
+Originally, I performed all alignments and variant calling with accession number NC_002549.1. The only prebuilt ebola database uses accession number KJ660346.1. Consequently, this command runs with an error: ERROR_CHROMOSOME_NOT_FOUND 495, since the chromosome names do not match. Boy howdy was this a nightmare. Because I couldn't be bothered to try a different variant predictor like VEP, I tried three different ways to attempt to swap out the chromosome name in my VCF file. This didn't work. After rerunning my alignment with the KJ660346.1 accession, I can run snpEff without the error. However, the summary is not successful.
+<img width="681" height="917" alt="image" src="https://github.com/user-attachments/assets/d3a91bac-0df1-4860-bdbb-8e783f443b05" />
 
 ### Identify variants with different effects.
