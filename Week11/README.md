@@ -20,7 +20,7 @@ Originally, I performed all alignments and variant calling with accession number
 ### Identify variants with different effects.
 Success! After clearing all reference files (fasta, gff, and anything indexed), I retrieved fasta and gff files for KJ660346.1. Bio fetch did not work for fasta format for this particular accession number, so this worked:
 ```
-esearch -db Nucleotide -query KJ660346.1 | efetch -format fasta > reffs/ebola.fa
+esearch -db Nucleotide -query KJ660346.1 | efetch -format fasta > refs/ebola.fa
 ```
 
 That command did not work for gff format, but this worked:
