@@ -60,15 +60,8 @@ Upon visualization with IGV, it appears there is a single variant unique to the 
 <img width="194" height="554" alt="image" src="https://github.com/user-attachments/assets/852d3c7c-3d78-41ea-af48-a5306f5906cd" />
 
 However, after screening for false positives, this variant is removed lol.
+<img width="1899" height="452" alt="uniqvariants" src="https://github.com/user-attachments/assets/fa8e7a09-c971-44ee-aeec-b3d524f77911" />
 
-<img width="2385" height="407" alt="image" src="https://github.com/user-attachments/assets/c17a5474-12e4-4327-9d1d-db1254c895a6" />
+Interestingly, the gold standard also identifed a single unique cancer variant in this region. It is, of course, not the same one I identified. 
+<img width="199" height="612" alt="image" src="https://github.com/user-attachments/assets/919d4ee7-d2f4-4e85-b58e-0fd875df175b" />
 
-
-
-
-
-
-
-
-
-## Deliverable: Report with variant counts, tumor-specific variants, and comparison to gold standard.
