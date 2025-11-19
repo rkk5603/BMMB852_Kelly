@@ -8,3 +8,5 @@
 - Week 7 explores bigwig files and visualization of alignments.
 - Week 8 introduces GNU parallel as a function to iterate through many items in tandem with a the commands of Makefile.
 - Week 10 adds variant calling target to the Makefile.
+- Week 11 adds variant effect prediction to the Makefile with snpEFF.
+- Week 12 demonstrates variant-calling analysis with a dataset from a 2025 paper cancer genome paper.
