@@ -20,8 +20,43 @@ Included in the file are:
 ### 1. Align the reads to the genome and create BAM and BigWig files.
 BAM and BigWig files are generated for each of the six samples using the algin and bigwig targets in the Makefile.
 ```
+make align NAME=chr22.genome R1=reads/HBR_1_R1.fq
+```
+```
+make align NAME=chr22.genome R1=reads/HBR_2_R1.fq
+```
+```
+make align NAME=chr22.genome R1=reads/HBR_3_R1.fq
+```
+```
+make align NAME=chr22.genome R1=reads/UHR_1_R1.fq
+```
+```
+make align NAME=chr22.genome R1=reads/UHR_2_R1.fq
+```
+```
+make align NAME=chr22.genome R1=reads/UHR_3_R1.fq
+```
 
 ```
+make bigwig NAME=chr22.genome SAMPLE=HBR_1_R1
+```
+```
+make bigwig NAME=chr22.genome SAMPLE=HBR_2_R1
+```
+```
+make bigwig NAME=chr22.genome SAMPLE=HBR_3_R1
+```
+```
+make bigwig NAME=chr22.genome SAMPLE=UHR_1_R1
+```
+```
+make bigwig NAME=chr22.genome SAMPLE=UHR_2_R1
+```
+```
+make bigwig NAME=chr22.genome SAMPLE=UHR_3_R1
+```
+
 ### 2. Run a feature counter to create a count matrix for your data. 
 - The result of your code should be a matrix that summarizes read counts for each dataset.
 
