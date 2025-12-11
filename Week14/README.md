@@ -25,10 +25,23 @@ Included in the file are:
 - reads/UHR_3_R1.fq
 
 ### Align the reads to the genome and create BAM and BigWig files.
+First, generate a design.csv file for the samples and their treatment groups.
+```
+Sample,Group
+HBR_1_R1,HBR
+HBR_2_R1,HBR
+HBR_3_R1,HBR
+UHR_1_R1,UHR
+UHR_2_R1,UHR
+UHR_3_R1,UHR
+```
 BAM and BigWig files are generated for each of the six samples using the algin and bigwig targets in the Makefile.
 
 ```
 cat design.csv | parallel --colsep , --header : --lb -j 4 make PAIRED=false SAMPLE={Sample} REF=refs/chr22.genome.fa R1=reads/{Sample}.fq align
+```
+```
+cat design.csv | parallel --colsep , --header : --lb -j 4 make PAIRED=false SAMPLE={Sample} REF=refs/chr22.genome.fa BAM=bam/{Sample}.bam bigwig
 ```
 
 ### Run a feature counter to create a count matrix for your data. 
@@ -53,5 +66,30 @@ make matrix MAPPING=hsapiens_gene_ensembl
 ```
 
 ### Generate PCA and heatmap visualizations of your data
+The pca target in the Makefile calls two R scripts in the src toolkit.
+- The edger.r script will process the counts.csv file to produce a differentially expressed genes matrix
+- The plot_pca.r script will constuct a PC plot using the generated edger.csv file and design.csv.
+```
+make pca
+```
+<img width="832" height="235" alt="image" src="https://github.com/user-attachments/assets/e6a16d0e-9b94-4a75-9c52-a283de483bb7" />
+
+The heatmap target calls the plot_heatmap.r script to generate a heatmap for the differential expressed genes from the edger.csv file.
+```
+make heatmap
+```
+<img width="686" height="776" alt="image" src="https://github.com/user-attachments/assets/717a0139-d726-4ba3-875b-09aa2f1b5a67" />
+
+Everything is coming to fruition. This makes me happy.
+
 ### Identify a set of differentially expressed genes or transcripts
+From the edger.csv file, 
+
 ### Perform functional enrichment analysis on your differentially expressed genes
+The enrichment target in the Makefile calls bio gprofiler to generate a gene homology csv using the edger.csv file.
+```
+make enrichment ORGANISM=hsapiens
+```
+<img width="1876" height="296" alt="image" src="https://github.com/user-attachments/assets/67a3e4a0-aac2-42b1-b97d-21d5966cb3d3" />
+
+
