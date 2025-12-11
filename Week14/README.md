@@ -83,8 +83,42 @@ make heatmap
 Everything is coming to fruition. This makes me happy.
 
 ### Identify a set of differentially expressed genes or transcripts
-From the edger.csv file, 
+From the edger.csv file, there are 299 genes that are differentially expressed after accounting for FDR.
+```
+# Initializing edgeR tibble dplyr tools ... done
+# Tool: edgeR
+# Design: design.csv
+# Counts: counts.csv
+# Sample column: sample
+# Factor column: group
+# Factors: HBR UHR
+# Group HBR has 3 samples.
+# Group UHR has 3 samples.
+# Method: glm
+# Input: 1371 rows
+# Removed: 993 rows
+# Fitted: 378 rows
+# Significant PVal:  304 ( 80.40 %)
+# Significant FDRs:  299 ( 79.10 %)
+# Results: edger.csv
+```
 
+The first 299 rows should be genes that are differentially expressed, with FDRs of 0.
+```
+$ cat edger.csv | cut -f 1,8,10 -d ',' | head
+```
+```
+name,PValue,FDR
+ENSG00000211677.2,2.1e-27,0
+ENSG00000211679.2,1.4e-23,0
+ENSG00000100167.19,6.2e-23,0
+ENSG00000100321.14,6.7e-23,0
+ENSG00000100095.18,9.3e-22,0
+ENSG00000008735.13,1.2e-21,0
+ENSG00000128245.14,3.9e-21,0
+ENSG00000130540.13,5.2e-21,0
+ENSG00000251322.7,5.4e-21,0
+```
 ### Perform functional enrichment analysis on your differentially expressed genes
 The enrichment target in the Makefile calls bio gprofiler to generate a gene homology csv using the edger.csv file.
 ```
