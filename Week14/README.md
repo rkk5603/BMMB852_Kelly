@@ -28,44 +28,8 @@ Included in the file are:
 BAM and BigWig files are generated for each of the six samples using the algin and bigwig targets in the Makefile.
 
 ```
-make align NAME=chr22.genome R1=reads/HBR_1_R1.fq
+cat design.csv | parallel --colsep , --header : --lb -j 4 make PAIRED=false SAMPLE={Sample} REF=refs/chr22.genome.fa R1=reads/{Sample}.fq align
 ```
-```
-make align NAME=chr22.genome R1=reads/HBR_2_R1.fq
-```
-```
-make align NAME=chr22.genome R1=reads/HBR_3_R1.fq
-```
-```
-make align NAME=chr22.genome R1=reads/UHR_1_R1.fq
-```
-```
-make align NAME=chr22.genome R1=reads/UHR_2_R1.fq
-```
-```
-make align NAME=chr22.genome R1=reads/UHR_3_R1.fq
-```
-
-```
-make bigwig NAME=chr22.genome SAMPLE=HBR_1_R1
-```
-```
-make bigwig NAME=chr22.genome SAMPLE=HBR_2_R1
-```
-```
-make bigwig NAME=chr22.genome SAMPLE=HBR_3_R1
-```
-```
-make bigwig NAME=chr22.genome SAMPLE=UHR_1_R1
-```
-```
-make bigwig NAME=chr22.genome SAMPLE=UHR_2_R1
-```
-```
-make bigwig NAME=chr22.genome SAMPLE=UHR_3_R1
-```
-
-<img width="1892" height="557" alt="image" src="https://github.com/user-attachments/assets/a2a3757a-4408-49e6-94c3-3bcb7a641af5" />
 
 ### Run a feature counter to create a count matrix for your data. 
 From the resulting BAM files, a matrix is produced that summarizes read counts for each dataset.
